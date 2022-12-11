@@ -1,0 +1,25 @@
+{
+  "name": "new-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "capture": "playwright test",
+    "test": "node resemble-2-urls.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@playwright/test": "^1.28.1",
+    "resemblejs": "^4.1.0"
+  },
+  "pagelist": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/::marker",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/"
+  ],
+  "pagelist02": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/::before",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/"
+  ]
+}
