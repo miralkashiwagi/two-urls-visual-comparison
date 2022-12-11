@@ -23,7 +23,7 @@ pagelist.forEach((item,index) => {
     resemble(image1)
         .compareTo(image2)
         .ignoreAntialiasing()
-        .outputSettings({ ignoreAreasColoredWith: color,largeImageThreshold:0 })
+        .outputSettings({largeImageThreshold:0 })
         .onComplete(data => {
             if (data.misMatchPercentage >= 0.5) {
                 console.log(filename);
