@@ -44,7 +44,6 @@ test.describe('multiple pages test',()=>{
 //キャプチャ処理
 async function run(page,item,num,filename){
   const browserName = page.context().browser().browserType().name()
-  await page.waitForTimeout(500); // 0.5秒待機
 
   //URLへ移動
   await page.goto(item);

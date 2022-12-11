@@ -6,8 +6,9 @@ const dir = "./screenshots/"
 const pagelist = p.pagelist;
 const pagelist02 = p.pagelist02;
 
-//本文テキストの色を除外
-const color = p.bodyColor;
+//差分検出につかう「misMatchPercentage」の値
+//最大100まで設定可能だが、精度的には0.1～1のあいだがよさそう
+const percentage = 0.5;
 
 pagelist.forEach((item,index) => {
     let num = ( '000' + index ).slice( -3 );
@@ -25,10 +26,10 @@ pagelist.forEach((item,index) => {
         .ignoreAntialiasing()
         .outputSettings({largeImageThreshold:0 })
         .onComplete(data => {
-            if (data.misMatchPercentage >= 0.5) {
+            if (data.misMatchPercentage >= percentage) {
                 console.log(filename);
                 console.log(filename02);
-                console.log('差分を検知しました。');
+                console.log(`差分を検知しました。${data.misMatchPercentage}%`);
                 fs.writeFileSync("./diff_image/"+filename+".jpg", data.getBuffer());
             } else {
                 console.log(filename);
