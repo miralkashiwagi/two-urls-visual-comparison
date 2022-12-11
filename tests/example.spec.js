@@ -44,6 +44,7 @@ test.describe('multiple pages test',()=>{
 //キャプチャ処理
 async function run(page,item,num,filename){
   const browserName = page.context().browser().browserType().name()
+  await page.waitForTimeout(500); // 0.5秒待機
 
   //URLへ移動
   await page.goto(item);
@@ -54,7 +55,7 @@ async function run(page,item,num,filename){
 
   //ページを上までスクロール
   await page.evaluate(() => window.scroll({top: 0, behavior: 'smooth'}));
-  await page.waitForTimeout(2000); // 1秒待機
+  await page.waitForTimeout(2000); // 2秒待機
 
   //スクリーンショットをとる
   await page.screenshot({ path:dir +num +"_"+ browserName+"-" + filename+".png", fullPage: true });
