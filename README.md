@@ -4,58 +4,63 @@
 npm install
 ```
 
-# 使い方
+※Node v20で動作確認（v18でも動く気がする）
+
+# 通常の使い方
 
 ## ページリスト作成
 
-package.jsonのpagelistと、pagelist02にテストしたいURLを記入。  
+package.jsonのpagelist01と、pagelist02にテストしたいURLを記入。  
 比較したいURLは同じ順番にくるようにする。
 
 ```json
-"pagelist": [
-  "https://developer.mozilla.org/en-US/docs/Web/CSS/::marker", 
-  "https://developer.mozilla.org/en-US/docs/Web/CSS/"
+"pagelist01": [
+  "https://example.com/test01-dev/", 
+  "https://example.com/test02-dev/"
 ],
 "pagelist02": [
-  "https://developer.mozilla.org/en-US/docs/Web/CSS/::before", 
-  "https://developer.mozilla.org/en-US/docs/Web/CSS/"
+  "https://example.com/test01/", 
+  "https://example.com/test02/"
 ]
 ```
 
-## スクリーンショットの取得
+## pagelist01のスクリーンショット撮影
 
 ```
-npm run capture
+npm run cap
 ```
 
-## 比較の実行
+/snapshots/にpngを保存します。
+
+
+## pagelist02との比較の実行
 
 ```
 npm run test
 ```
 
-出力と diff_image を確認してください。
+pagelist02の内容と/snapshots/を比較します。
 
-```text
-000_chromium-developer-mozilla-org_en-US_docs_Web_CSS_marker
-000_chromium-developer-mozilla-org_en-US_docs_Web_CSS_before
-差分を検知しました。
-001_chromium-developer-mozilla-org_en-US_docs_Web_CSS
-001_chromium-developer-mozilla-org_en-US_docs_Web_CSS
-差分なし
-```
+## 結果の確認
 
-# 設定について
-## キャプチャ設定
-### playwright.config.js
+結果は http://localhost:9323/ で確認できます。
+レポートが表示されない場合は`npx playwright show-report`を試してください。
+
+
+# キャプチャ設定
+## playwright.config.js
 playwright環境設定。  
-`slowMo: 5000,` でサーバー負荷が下がっていて欲しいと願っている。
+`slowMo: 5000,` でサーバー負荷が下がっていて欲しいと願っている。  
+サーバー負荷が高い場合は `fullyParallel`を`false`にしてみて。
 
-### tests/example.spec.js
-44行目以降の「//キャプチャ処理」の箇所で、ページごとのキャプチャ処理を記載。  
+## tests/visual.spec.js
+19行目以降の「//キャプチャ処理」の箇所で、ページごとのキャプチャ処理を記載。  
 アニメーション処理対策でページを一番下までスクロールして、もう一度一番上までスクロールしてから、キャプチャしている。
 
-## 比較設定
-### resemble-2-urls.js
-`const percentage = 0.5;` の数値を 変更すると「差分あり」とする割合が変わる。  
-1%の差があると結構違うため、0.1～1の間で設定するのがよさそう。
+---
+
+# デザインデータとの比較
+- `npm run cap` を行わずに、pagelist02にテストサイトURLを入力。
+- /snapshots/にpagelist02に記載のURLの順番通りに、000.png,001.pngという命名でデザインデータから書き出したpngを格納。
+- tests/visual.spec.js の `viewport` をデザインデータの設定に合わせる
+- `npm run test` を実行

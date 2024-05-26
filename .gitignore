@@ -1,6 +1,7 @@
 node_modules/
 .idea/
 /test-results/
+/snapshots/
 /playwright-report/
 /playwright/.cache/
 package-lock.json
