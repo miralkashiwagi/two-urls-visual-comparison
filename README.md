@@ -64,3 +64,11 @@ playwright環境設定。
 - /snapshots/にpagelist02に記載のURLの順番通りに、000.png,001.pngという命名でデザインデータから書き出したpngを格納。
 - tests/visual.spec.js の `viewport` をデザインデータの設定に合わせる
 - `npm run test` を実行
+
+---
+
+# `npm run test` でtimeoutが出るとき
+- 原因：無限スクロールや動き続けるカルーセルなどの自動で動き続ける要素が原因
+- 対策1:screenshot.cssで動き続ける要素をopacity:0;に指定する
+- 対策2:tests/visual.spec.js の32行目にある `animations` を`'disabled'`に変える
+- その他の方法：diffを見るのは諦めて、side by sideや sliderで差分を目視でチェックする
