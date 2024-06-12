@@ -68,7 +68,7 @@ playwright環境設定。
 ---
 
 # `npm run test` でtimeoutになりdiff生成に失敗しているとき
+- diffを見るのは諦めて、side by sideや sliderで差分を目視でチェックする分には問題なし。
 - 原因：無限スクロールや動き続けるカルーセルなどの自動で動き続ける要素が原因
 - 対策1:screenshot.cssで動き続ける要素をopacity:0;に指定する
 - 対策2:tests/visual.spec.js の32行目にある `animations` を`'disabled'`に変える
-- その他の方法：diffを見るのは諦めて、side by sideや sliderで差分を目視でチェックする
