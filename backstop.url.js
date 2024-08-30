@@ -11,7 +11,7 @@ module.exports = {
         }
     ],
     onBeforeScript: 'puppet/onBefore.js',
-    onReadyScript: 'puppet/onReady.js',
+    // onReadyScript: 'puppet/onReady.js',
     scenarios: urlScenarios,
     paths: {
         bitmaps_reference: 'backstop_data/bitmaps_reference',

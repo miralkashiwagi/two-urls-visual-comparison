@@ -3,9 +3,6 @@
 ```
 npm install
 ```
-```
-backstop init
-```
 
 ※Node v18で動作確認
 
