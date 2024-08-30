@@ -1,0 +1,17 @@
+{
+  "urlSet1": [
+    "https://example.com/",
+    "https://example.com/about/",
+    "https://example.com/news/"
+  ],
+  "urlSet2": [
+    "https://example.com/test/",
+    "https://example.com/test/about/",
+    "https://example.com/test/news/"
+  ],
+  "imageUrls": [
+    "https://example.com/",
+    "https://example.com/about/",
+    "https://example.com/news/"
+  ]
+}
