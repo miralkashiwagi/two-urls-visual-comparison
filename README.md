@@ -9,7 +9,7 @@ npm install
 # 通常の使い方
 
 ## ページリスト作成
-urls.jsonの「urlSet1」に正解のURL、
+urls.jsonの「urlSet1」に正解のURL、  
 「urlSet2」にテストしたいURLを入力
 
 ## レファレンススクリーンショットの取得
@@ -26,9 +26,9 @@ npm run test:url
 urls.jsonの「imageUrls」にテストしたいURLを入力
 
 ## 参照画像の作成
-1.001.png, 002.png ... という命名で/reference/に保存
+1. 001.png, 002.png ... という命名で/reference/に保存  
 ※urls.jsonに記載したのと同じ順番にすること
-2.`npm run rename:image` を実行
+2. `npm run rename:image` を実行
 
 ## テストの実行
 ```
