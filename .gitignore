@@ -1,9 +1,9 @@
 node_modules/
 .idea/
-/test-results/
-/snapshots/
-/playwright-report/
-/playwright/.cache/
+backstop_data/bitmaps_reference
+backstop_data/bitmaps_test
+backstop_data/html_report
+
 package-lock.json
 *.jpg
 *.png
