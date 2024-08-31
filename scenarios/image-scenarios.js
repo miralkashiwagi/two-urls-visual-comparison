@@ -6,5 +6,4 @@ module.exports = urls.imageUrls.map((url, index) => ({
     url: url,
     misMatchThreshold: 0.1,
     requireSameDimensions: true,
-    onReadyScript: 'applyCss.js'  // カスタムCSSを適用するスクリプトを指定
 }));

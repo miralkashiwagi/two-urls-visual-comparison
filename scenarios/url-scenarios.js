@@ -6,5 +6,4 @@ module.exports = urls.urlSet1.map((url, index) => ({
     referenceUrl: url,         // 参照URL（Set 1）
     misMatchThreshold: 0.1,
     requireSameDimensions: true,
-    onReadyScript: 'applyCss.js'  // カスタムCSSを適用するスクリプトを指定
 }));

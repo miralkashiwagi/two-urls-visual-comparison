@@ -10,8 +10,8 @@ module.exports = {
             height: 800,
         },
     ],
-    onBeforeScript: "puppet/onBefore.js",
-    // onReadyScript: "puppet/onReady.js",
+    onBeforeScript: "playwright/onBefore.js",
+    onReadyScript: "playwright/onReady.js",
     scenarios: imageScenarios,
     paths: {
         bitmaps_reference: "reference",
@@ -21,18 +21,12 @@ module.exports = {
         ci_report: "backstop_data/ci_report",
     },
     report: ["browser"],
-    engine: "puppeteer",
+    engine: "playwright",
     engineOptions: {
         args: ["--no-sandbox"],
     },
-    asyncCaptureLimit: 5,
+    asyncCaptureLimit: 2,
     asyncCompareLimit: 50,
     debug: false,
     debugWindow: false,
-    onCompare: {
-        test: "custom-compare.js",
-    },
-    // screenshot.cssのパスを追加
-    onReadyScript: "applyCss.js",
-    customCssFilePath: path.join(__dirname, "screenshot.css"),
 };
