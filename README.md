@@ -61,3 +61,7 @@ npm run image
 - backstop_data/engine_scripts/playwright/onReady.js にある overrideCSS.js の行のコメントを解除
 - 適用したい CSS を overrideCSS.js に記載
 - テストの実行時に CSS が適用される
+
+# エラーが出たとき
+- Looks like Playwright Test or Playwright was just installed or updated が出たら
+  メッセージの通り `npx playwright install` を実行してから、再度テストのcommandを実行してください
