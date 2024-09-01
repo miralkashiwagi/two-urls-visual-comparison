@@ -8,7 +8,7 @@ npm install
 
 # 通常の使い方（URL 比較）
 
-## UELリスト作成
+## URLリスト作成
 
 urls.json の「urlSet1」に正解の URL、  
 「urlSet2」にテストしたい URL を入力
