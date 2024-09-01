@@ -1,32 +1,32 @@
-const urlScenarios = require('./scenarios/url-scenarios');
+const urlScenarios = require("./scenarios/url-scenarios");
 const path = require("path");
 
 module.exports = {
-    id: 'url',
-    viewports: [
-        {
-            label: 'desktop',
-            width: 1400,
-            height: 800
-        }
-    ],
-    onBeforeScript: 'playwright/onBefore.js',
-    onReadyScript: 'playwright/onReady.js',
-    scenarios: urlScenarios,
-    paths: {
-        bitmaps_reference: 'backstop_data/bitmaps_reference',
-        bitmaps_test: 'backstop_data/bitmaps_test',
-        engine_scripts: 'backstop_data/engine_scripts',
-        html_report: 'backstop_data/html_report',
-        ci_report: 'backstop_data/ci_report'
+  id: "url", // 設定のID
+  viewports: [
+    {
+      label: "desktop", // ビューポートの設定名
+      width: 1400, // ビューポートの幅
+      height: 800, // ビューポートの高さ
     },
-    report: ['browser'],
-    engine: 'playwright',
-    engineOptions: {
-        args: ['--no-sandbox']
-    },
-    asyncCaptureLimit: 2,
-    asyncCompareLimit: 50,
-    debug: false,
-    debugWindow: false,
+  ],
+  onBeforeScript: "playwright/onBefore.js", // テスト前に実行するスクリプト
+  onReadyScript: "playwright/onReady.js", // テスト準備完了後に実行するスクリプト
+  scenarios: urlScenarios, // テストシナリオ
+  paths: {
+    bitmaps_reference: "backstop_data/bitmaps_reference", // 参照ビットマップのパス
+    bitmaps_test: "backstop_data/bitmaps_test", // テストビットマップのパス
+    engine_scripts: "backstop_data/engine_scripts", // エンジンスクリプトのパス
+    html_report: "backstop_data/html_report", // HTMLレポートのパス
+    ci_report: "backstop_data/ci_report", // CIレポートのパス
+  },
+  report: ["browser"], // レポートの形式
+  engine: "playwright", // 使用するエンジン 'puppeteer' か 'playwright'
+  engineOptions: {
+    args: ["--no-sandbox"], // エンジンのオプション
+  },
+  asyncCaptureLimit: 2, // 同時キャプチャの制限
+  asyncCompareLimit: 50, // 同時比較の制限
+  debug: false, // デバッグモード
+  debugWindow: false, // デバッグウィンドウの表示
 };

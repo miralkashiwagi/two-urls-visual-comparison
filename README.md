@@ -4,34 +4,60 @@
 npm install
 ```
 
-※Node v18で動作確認
+※Node v18 で動作確認
 
-# 通常の使い方
+# 通常の使い方（URL 比較）
 
 ## ページリスト作成
-urls.jsonの「urlSet1」に正解のURL、  
-「urlSet2」にテストしたいURLを入力
 
-## レファレンススクリーンショットの取得
-```
-npm run reference:url
-```
+urls.json の「urlSet1」に正解の URL、  
+「urlSet2」にテストしたい URL を入力
+
 ## テストの実行
+
 ```
-npm run test:url
+npm run url
 ```
 
-# デザインデータの書き出しpngとの比較
-## URLリストの作成
-urls.jsonの「imageUrls」にテストしたいURLを入力
+# デザインデータの書き出し png との比較
+
+## URL リストの作成
+
+urls.json の「imageUrls」にテストしたい URL を入力
 
 ## 参照画像の作成
-1. 001.png, 002.png ... という命名で/reference/に保存  
-※urls.jsonに記載したのと同じ順番にすること
-2. `npm run rename:image` を実行
+
+1.001.png, 002.png ... という命名で/reference/に保存
+※urls.json に記載したのと同じ順番にすること
 
 ## テストの実行
+
 ```
-npm run test:image
+npm run image
 ```
 
+# テスト設定の変更
+
+## URL 比較
+
+- backstop.url.js
+  - ブラウザの設定など
+- scenarios/url-scenarios.js
+  - 一致度の閾値など
+- backstop_data/engine_scripts/playwright/onReady.js
+  - ページを開いてからスクリーンショットを取るまでの処理
+
+## デザインデータ比較
+
+- backstop.image.js
+  - ブラウザの設定など
+- scenarios/image-scenarios.js
+  - 一致度の閾値など
+- backstop_data/engine_scripts/playwright/onReady.js
+  - ページを開いてからスクリーンショットを取るまでの処理
+
+## スクリーンショットを取るとき適用したい CSS があれば overrideCSS.js を使う
+
+- backstop_data/engine_scripts/playwright/onReady.js にある overrideCSS.js の行のコメントを解除
+- 適用したい CSS を overrideCSS.js に記載
+- テストの実行時に CSS が適用される
