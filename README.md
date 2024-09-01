@@ -8,7 +8,7 @@ npm install
 
 # 通常の使い方（URL 比較）
 
-## ページリスト作成
+## UELリスト作成
 
 urls.json の「urlSet1」に正解の URL、  
 「urlSet2」にテストしたい URL を入力
@@ -27,7 +27,7 @@ urls.json の「imageUrls」にテストしたい URL を入力
 
 ## 参照画像の作成
 
-1.001.png, 002.png ... という命名で/reference/に保存
+001.png, 002.png ... という命名で/reference/に保存  
 ※urls.json に記載したのと同じ順番にすること
 
 ## テストの実行
